@@ -1,0 +1,3 @@
+# Phase 0 intentionally uses the Python standard library at runtime.
+# pytest is planned for later phases; no network installation is required yet.
+
