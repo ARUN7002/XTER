@@ -1,0 +1,15 @@
+:root { font-family: Inter, system-ui, sans-serif; color: #e8eef7; background: #0b1220; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+.shell { max-width: 1100px; margin: 0 auto; padding: 32px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+h1 { font-size: 42px; margin: 4px 0 24px; letter-spacing: .08em; }
+h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .08em; color: #9fb3cc; }
+.eyebrow { color: #78a9e8; font-size: 11px; letter-spacing: .12em; margin: 0; }
+.health { border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 12px; }
+.health-green { background: #123d2b; color: #7bf0ae; }.health-amber { background: #49380f; color: #ffd56a; }.health-red { background: #4d1c24; color: #ff9ba8; }
+.notice, article, .status { background: #111c2d; border: 1px solid #223452; border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+.notice { color: #b7c6d9; }.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+article strong { font-size: 24px; }.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+button { border: 1px solid #5276a8; color: #e8eef7; background: #1b3150; border-radius: 8px; padding: 9px 12px; cursor: pointer; }
+button:hover { background: #28466f; }.danger { background: #762532; border-color: #bd4b5d; }.warning { color: #ffd56a; }

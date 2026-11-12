@@ -14,5 +14,7 @@ Phase 4 adds `backend/andrews/operator.py`. The Operator requires a dedicated-VM
 
 Phase 5 adds `backend/andrews/gemini.py`. The adapter defaults to owner-mediated manual transfer, bounds retries, rejects empty or incomplete responses, and marks every response as untrusted data. Credentials, cookies, and website sessions are not accepted or stored.
 
+Phase 6 adds a React/Vite dashboard state model and UI scaffold. Health is derived from observed signals and staleness, manual takeover requires input revocation confirmation, and dashboard disconnect does not mutate Guardian state. Live transport and VM display integration remain future adapters.
+
 No component in this phase has permission to control a browser, VM, AI model, or external service. The process/IPC packaging and authenticated host-to-VM transport remain later work.
 
