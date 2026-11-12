@@ -16,5 +16,7 @@ Phase 5 adds `backend/andrews/gemini.py`. The adapter defaults to owner-mediated
 
 Phase 6 adds a React/Vite dashboard state model and UI scaffold. Health is derived from observed signals and staleness, manual takeover requires input revocation confirmation, and dashboard disconnect does not mutate Guardian state. Live transport and VM display integration remain future adapters.
 
+Phase 7 adds `backend/andrews/reporting.py`. Reports escape untrusted values, export task summaries to HTML/CSV, preserve diagnostic and error summaries, and label verification sources. The knowledge base accepts only local-test, owner-review, or independent-check evidence. Cleanup is restricted to files directly inside an explicit directory and approved report/log suffixes.
+
 No component in this phase has permission to control a browser, VM, AI model, or external service. The process/IPC packaging and authenticated host-to-VM transport remain later work.
 
