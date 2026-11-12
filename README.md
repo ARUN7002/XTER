@@ -26,4 +26,5 @@ The default data root is `E:\ANDREWS`. Set `ANDREWS_DATA_ROOT` to another locati
 
 ## Phase status
 
-Phase 1 implements permission leases, expiry, action authorization, heartbeat supervision, emergency stop, and append-only JSONL audit events. Operator, diagnostics, browser integration, and dashboard controls are deliberately not active yet.
+Phase 1 implements permission leases, expiry, action authorization, heartbeat supervision, emergency stop, and append-only JSONL audit events. Phase 2 adds a restricted diagnostic broker with strict request/response schemas and timeouts; it does not install Ollama or download Qwen automatically. Operator, browser integration, and dashboard controls are deliberately not active yet.
+
