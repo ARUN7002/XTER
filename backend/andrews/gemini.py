@@ -93,6 +93,9 @@ class GeminiAdapter:
                 return self._validate_response(self._transport(prompt))
             except GeminiIncomplete as exc:
                 last_error = exc
+            except Exception as exc:
+                last_error = GeminiUnavailable("Gemini transport failed")
+                break
         raise last_error or GeminiUnavailable("Gemini did not return a complete response")
 
     @staticmethod
