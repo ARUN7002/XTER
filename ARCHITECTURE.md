@@ -8,5 +8,7 @@ Phase 1 adds `backend/andrews/guardian.py`. The Guardian owns the permission lea
 
 Phase 2 adds `backend/andrews/diagnostics.py`. The broker accepts a bounded diagnostic request, sanitizes it, calls an injected local model client, enforces a timeout, and validates an exact response schema. Its output is data only; it exposes no command, permission, browser, or filesystem operation.
 
+Phase 3 adds `backend/andrews/tasks.py`. The Task Manager owns SQLite session/task records, bounded workloads, duplicate detection, a legal status-transition graph, correction limits, deadlines, checkpoints, interruption states, and independent verification evidence.
+
 No component in this phase has permission to control a browser, VM, AI model, or external service. The process/IPC packaging and authenticated host-to-VM transport remain later work.
 
