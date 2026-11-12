@@ -47,6 +47,7 @@ class SessionState:
     correction_count: int = 0
     last_heartbeat: float = 0.0
     stop_reason: str | None = None
+    automated_input_enabled: bool = True
     audit_events: list[dict[str, object]] = field(default_factory=list)
 
 
@@ -167,6 +168,24 @@ class Guardian:
                 self._record("EMERGENCY_STOP", session_id=session.lease.session_id, owner=owner, reason=session.stop_reason)
             self._stopped = True
 
+    def revoke_automated_input(self, *, owner: str, reason: str = "manual takeover") -> None:
+        with self._lock:
+            if not owner.strip():
+                raise ValueError("owner must not be empty")
+            session = self._require_session()
+            session.automated_input_enabled = False
+            self._record("AUTOMATED_INPUT_REVOKED", session_id=session.lease.session_id, owner=owner, reason=reason)
+
+    def resume_automated_input(self, *, owner: str) -> None:
+        with self._lock:
+            if not owner.strip():
+                raise ValueError("owner must not be empty")
+            session = self._require_session()
+            if self._stopped or session.status != "ACTIVE":
+                raise GuardianError("cannot resume input on a stopped session")
+            session.automated_input_enabled = True
+            self._record("AUTOMATED_INPUT_RESUMED", session_id=session.lease.session_id, owner=owner)
+
     def watchdog_tick(self) -> bool:
         """Return True when the session is healthy; stop it on lease/heartbeat expiry."""
         with self._lock:
@@ -195,6 +214,8 @@ class Guardian:
             return "origin is not approved"
         if action not in lease.allowed_actions:
             return "action category is not approved"
+        if action in {"mouse", "keyboard", "input", "write", "submit"} and not session.automated_input_enabled:
+            return "automated input is revoked"
         if session.action_count >= lease.max_actions:
             return "action budget exceeded"
         return None

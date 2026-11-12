@@ -26,5 +26,5 @@ The default data root is `E:\ANDREWS`. Set `ANDREWS_DATA_ROOT` to another locati
 
 ## Phase status
 
-Phase 1 implements permission leases, expiry, action authorization, heartbeat supervision, emergency stop, and append-only JSONL audit events. Phase 2 adds a restricted diagnostic broker with strict request/response schemas and timeouts; it does not install Ollama or download Qwen automatically. Phase 3 adds the SQLite-backed Task Manager with bounded workloads, status transitions, checkpoints, interruption recovery, and evidence-required verification. Operator, browser integration, and dashboard controls are deliberately not active yet.
+Phase 1 implements permission leases, expiry, action authorization, heartbeat supervision, emergency stop, and append-only JSONL audit events. Phase 2 adds a restricted diagnostic broker with strict request/response schemas and timeouts; it does not install Ollama or download Qwen automatically. Phase 3 adds the SQLite-backed Task Manager with bounded workloads, status transitions, checkpoints, interruption recovery, and evidence-required verification. Phase 4 adds the safe Operator state machine and VM/browser isolation contracts; VirtualBox, Playwright, and real websites remain disabled.
 
