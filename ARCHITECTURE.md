@@ -12,5 +12,7 @@ Phase 3 adds `backend/andrews/tasks.py`. The Task Manager owns SQLite session/ta
 
 Phase 4 adds `backend/andrews/operator.py`. The Operator requires a dedicated-VM browser attachment, authorizes every input through Guardian, pauses on browser failure, stops on Guardian loss, and revokes automated input before manual takeover. Desktop and browser automation remain behind future adapters.
 
+Phase 5 adds `backend/andrews/gemini.py`. The adapter defaults to owner-mediated manual transfer, bounds retries, rejects empty or incomplete responses, and marks every response as untrusted data. Credentials, cookies, and website sessions are not accepted or stored.
+
 No component in this phase has permission to control a browser, VM, AI model, or external service. The process/IPC packaging and authenticated host-to-VM transport remain later work.
 
